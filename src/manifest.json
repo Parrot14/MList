@@ -1,0 +1,13 @@
+{
+
+  "manifest_version": 2,
+  "name": "MList",
+  "version": "0.1",
+
+  "description": "",
+
+  "icons": {
+    "48": "icons/mlist-48.png",
+		"96": "icons/mlist-96.png"
+  },
+}
