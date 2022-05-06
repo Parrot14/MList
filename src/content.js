@@ -23,7 +23,6 @@ const html =
     </div>
 </div>`
 let status_node
-let button_nodes
 let username
 
 function htmlToElement(html) {
@@ -47,8 +46,8 @@ function inject(){
     let svg = node.querySelector( ".connor-base>.messaging-actions__action>svg" )
     let container = node.querySelector( ".connor-action-container" )
     let base_button = node.querySelector( ".connor-base>.messaging-actions__action" )
-    status_node = node.querySelector( ".connor-base>.messaging-actions__action messaging-actions__label" )
-    buttons = node.querySelectorAll( ".connor-action-container>.connor-action" )
+    status_node = node.querySelector( ".connor-base>.messaging-actions__action .messaging-actions__label" )
+    let buttons = node.querySelectorAll( ".connor-action-container>.connor-action" )
 
     buttons[0].addEventListener("click",e=> sendUpdate("nothing") )
     buttons[1].addEventListener("click",e=> sendUpdate("data") )
@@ -98,3 +97,5 @@ const fn_local = {
 browser.runtime.onMessage.addListener(data => {
     fn_local[data.type]?.(data)
 });
+
+init()
