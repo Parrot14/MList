@@ -33,7 +33,7 @@ function htmlToElement(html) {
 }
 
 function sendUpdate(value){
-    status_node.innerText = Conectando...
+    status_node.innerText = "Conectando..."
     svg.classList.toggle("connor-inactive")
     container.classList.toggle("connor-inactive")
     browser.runtime.sendMessage({
