@@ -8,12 +8,12 @@ const fn_input = {
     "02": arr =>{
         let id = arr[1]
         let status = arr[2]
-        browser.tabs.sendMessage( id, { type: 2, status: status } ) // Set response
+        browser.tabs.sendMessage( id, { type: "02", status: status } ) // Set response
     },
     "03": arr =>{
         let id = arr[1]
         let value = arr[2]
-        browser.tabs.sendMessage( id, { type: 3, value:value } ) // Get response
+        browser.tabs.sendMessage( id, { type: "03", value:value } ) // Get response
     }
 }
 
@@ -34,7 +34,7 @@ const fn_output = {
     "02": (id, data) =>{
         // (name,data_name,value)
         if( socket.readyState != 1 ) {
-            browser.tabs.sendMessage( id, { type: -1 } ) // Server not ready
+            browser.tabs.sendMessage( id, { type: "00" } ) // Server not ready
         } else {
             socket.send(`03:${id}:${data.name}:${data.data_name}:${data.value}`)
         }
@@ -42,7 +42,7 @@ const fn_output = {
     "03": (id, data) =>{
         // (id,name,data_name)
         if( socket.readyState != 1 ) {
-            browser.tabs.sendMessage( id, { type: -1 } ) // Server not ready
+            browser.tabs.sendMessage( id, { type: "00" } ) // Server not ready
         } else {
             socket.send(`03:${id}:${data.name}:${data.data_name}`)
         }
