@@ -24,6 +24,8 @@ const html =
 </div>`
 let status_node
 let username
+let svg
+let container
 
 function htmlToElement(html) {
     var template = document.createElement('template');
@@ -46,8 +48,8 @@ function sendUpdate(value){
 
 function inject(){
     let node = htmlToElement( html )
-    let svg = node.querySelector( ".connor-base>.messaging-actions__action>svg" )
-    let container = node.querySelector( ".connor-action-container" )
+    svg = node.querySelector( ".connor-base>.messaging-actions__action>svg" )
+    container = node.querySelector( ".connor-action-container" )
     let base_button = node.querySelector( ".connor-base>.messaging-actions__action" )
     status_node = node.querySelector( ".connor-base>.messaging-actions__action .messaging-actions__label" )
     let buttons = node.querySelectorAll( ".connor-action-container>.connor-action" )
