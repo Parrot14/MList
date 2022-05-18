@@ -1,27 +1,3 @@
-const actions = document.querySelector(".sidebar>.messaging-actions")
-const html = 
-`<div class="connor-base">
-    <div class="messaging-actions__action">
-        <div class="messaging-actions__data">
-            <span class="messaging-actions__label">Conectando...</span>
-            <span class="messaging-actions__hint">Cambiar estado</span>
-        </div>
-        <svg class="connor-svg connor-inactive" width="5px" height="8px" viewBox="0 0 9 14" xmlns="http://www.w3.org/2000/svg">
-            <path fill="#B4B4B4" d="M8.12 6.96a.48.48 0 0 0-.14-.32L1.48.14A.48.48 0 0 0 1.157 0a.48.48 0 0 0-.32.14L.14.837a.48.48 0 0 0-.14.32.48.48 0 0 0 .14.322l5.482 5.48L.14 12.444a.48.48 0 0 0-.14.32c0 .127.056.238.14.32l.697.7a.48.48 0 0 0 .32.14.48.48 0 0 0 .322-.14l6.5-6.5a.48.48 0 0 0 .14-.323z" fill-rule="evenodd"></path>
-        </svg>
-    </div>
-    <div class="connor-action-container connor-inactive">
-        <div class="connor-action messaging-actions__action messaging-actions__label">
-            No Aplica
-        </div>
-        <div class="connor-action messaging-actions__action messaging-actions__label"">
-            Datos Recibidos
-        </div>
-        <div class="connor-action messaging-actions__action messaging-actions__label"">
-            Facturado
-        </div>
-    </div>
-</div>`
 let status_node
 let username
 let svg
@@ -47,6 +23,30 @@ function sendUpdate(value){
 }
 
 function inject(){
+    let html =
+    `<div class="connor-base">
+        <div class="messaging-actions__action">
+            <div class="messaging-actions__data">
+                <span class="messaging-actions__label">Conectando...</span>
+                <span class="messaging-actions__hint">Cambiar estado</span>
+            </div>
+            <svg class="connor-svg connor-inactive" width="5px" height="8px" viewBox="0 0 9 14" xmlns="http://www.w3.org/2000/svg">
+                <path fill="#B4B4B4" d="M8.12 6.96a.48.48 0 0 0-.14-.32L1.48.14A.48.48 0 0 0 1.157 0a.48.48 0 0 0-.32.14L.14.837a.48.48 0 0 0-.14.32.48.48 0 0 0 .14.322l5.482 5.48L.14 12.444a.48.48 0 0 0-.14.32c0 .127.056.238.14.32l.697.7a.48.48 0 0 0 .32.14.48.48 0 0 0 .322-.14l6.5-6.5a.48.48 0 0 0 .14-.323z" fill-rule="evenodd"></path>
+            </svg>
+        </div>
+        <div class="connor-action-container connor-inactive">
+            <div class="connor-action messaging-actions__action messaging-actions__label">
+                No Aplica
+            </div>
+            <div class="connor-action messaging-actions__action messaging-actions__label"">
+                Datos Recibidos
+            </div>
+            <div class="connor-action messaging-actions__action messaging-actions__label"">
+                Facturado
+            </div>
+        </div>
+    </div>`
+    let actions = document.querySelector(".sidebar>.messaging-actions")
     let node = htmlToElement( html )
     svg = node.querySelector( ".connor-base>.messaging-actions__action>svg" )
     container = node.querySelector( ".connor-action-container" )
@@ -79,6 +79,16 @@ function init(){
       })
 }
 
+function arrange(){
+    const targetNode = document.querySelector("#root-app>div>.messaging>.view>.sidebar>div:last-child")
+    const config = { childList: true }
+    const observer = new MutationObserver(()=> {
+        observer.disconnect()
+        init()
+    })
+    observer.observe(targetNode,config)
+}
+
 const var_values = {
     "00":"ERROR",
     "":"No Aplica",
@@ -103,4 +113,4 @@ browser.runtime.onMessage.addListener(data => {
     fn_local[data.type]?.(data)
 });
 
-init()
+arrange()
