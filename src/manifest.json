@@ -15,7 +15,22 @@
 	},
   "content_scripts": [
     {
-      "matches": ["*://www.mercadolibre.com.mx/ventas/mensajeria/*"],
+      "matches": ["*://www.mercadolibre.com.ar/ventas/mensajeria/*",
+                  "*://www.mercadolibre.com.cl/ventas/mensajeria/*",
+                  "*://www.mercadolibre.com.co/ventas/mensajeria/*",
+                  "*://www.mercadolibre.com.cr/ventas/mensajeria/*",
+                  "*://www.mercadolibre.com.do/ventas/mensajeria/*",
+                  "*://www.mercadolibre.com.ec/ventas/mensajeria/*",
+                  "*://www.mercadolibre.com.gt/ventas/mensajeria/*",
+                  "*://www.mercadolibre.com.hn/ventas/mensajeria/*",
+                  "*://www.mercadolibre.com.mx/ventas/mensajeria/*",
+                  "*://www.mercadolibre.com.ni/ventas/mensajeria/*",
+                  "*://www.mercadolibre.com.pa/ventas/mensajeria/*",
+                  "*://www.mercadolibre.com.py/ventas/mensajeria/*",
+                  "*://www.mercadolibre.com.pe/ventas/mensajeria/*",
+                  "*://www.mercadolibre.com.sv/ventas/mensajeria/*",
+                  "*://www.mercadolibre.com.uy/ventas/mensajeria/*",
+                  "*://www.mercadolibre.com.ve/ventas/mensajeria/*"],
       "js": ["content.js"],
 			"css": ["styles/button.css"]
     }
