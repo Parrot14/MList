@@ -1,3 +1,5 @@
+![Representative banner of the application](/README.resources/mlist_banner.png)
+
 ## About
 
 Addon to use in company of the server provider MListServer, save a local registry of items to make invoices and status.
