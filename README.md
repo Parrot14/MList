@@ -8,6 +8,10 @@ Addon to use in company of the server provider MListServer, save a local registr
 
 - Inject an invoice status button onto your MercadoLibre[^1] messaging page
 
+## Screenshots
+
+![Invoice button](/README.resources/invoice_button.png)
+
 ## License
 
 GPL3
